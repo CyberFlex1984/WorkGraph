@@ -58,3 +58,8 @@ Big Mac prepared successfully!
 Bro, just git clone this project and copy **WorkGraph.hpp** to your include directory or use wget (or other util) to download this header.
 
 :3
+
+# UPD
+
+original workgraph [WorkGraph](https://github.com/CyberFlex1984/WorkGraph)
+fake / copy-pasted workgraph [D3D12 Work Graphs](https://devblogs.microsoft.com/directx/d3d12-work-graphs/)
