@@ -53,6 +53,47 @@ Preparing meat
 Big Mac prepared successfully!
 ```
 
+# Sample of code 2
+
+```cpp
+#include "WorkGraph.hpp"
+#include <iostream>
+
+int main(){
+    auto node1 = Node::make_node([](Node& node){
+        auto val = node.get_input<float>(0);
+
+        node.set_output<float>(0, val * 10);
+    }, 1, 1);
+    auto node2 = Node::make_node([](Node& node){
+        auto val = node.get_input<float>(0);
+
+        node.set_output<float>(0, val*2);
+    }, 1, 1);
+
+    node2 > node1;
+
+    Node::map(node2, node1, 0, 0);
+
+    node2->set_input<float>(0, 5.f);
+
+    Node::execute(node1);
+
+    std::cout << node2->get_output<float>(0) << std::endl;
+    std::cout << node1->get_output<float>(0) << std::endl;
+}
+```
+
+You can use ```Node::map``` to map output from one node to input to another node, and then execute graph.
+
+You can actually set/get input/output variables via special methods. As you can see in this sample.
+
+Output:
+```
+10
+100
+```
+
 # How to use?
 
 Bro, just git clone this project and copy **WorkGraph.hpp** to your include directory or use wget (or other util) to download this header.
